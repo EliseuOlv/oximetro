@@ -1,0 +1,15 @@
+POST http://localhost:4002/batimentos
+Content-Type: application/json
+
+{
+    "O2": 234
+}
+
+####
+
+GET http://localhost:4002/batimentos
+
+###
+
+
+DELETE http://localhost:4002/batimentos/linda

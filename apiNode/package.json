@@ -1,0 +1,15 @@
+{
+  "name": "apinode",
+  "version": "1.0.0",
+  "description": "apiOximetro",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "author": "Eliseu Olieveira",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
