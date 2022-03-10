@@ -45,8 +45,7 @@ wsServer.on('request', (request) => {
             //Mostra no console a mensagem
             console.log(messagem);
         }
-        typeof(messagem)
-        if(messagem != "0" | messagem != 0){
+        if(messagem != 0){
             postContent(message.utf8Data);
         }
 

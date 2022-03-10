@@ -16,11 +16,9 @@ fs.readFile("batimentosOx.json", "utf-8", (err, data) =>{
     }
 })
 
-// app.get('/primeira-rota', (request, response) => {
-//     return response.json({
-//         message: "Acessou a primeira rota",
-//     });
-// })
+app.get('/primeira-rota', (request, response) => {
+    return batimentos;
+})
 
 app.post('/batimentos', (request, response) =>{
 
@@ -29,8 +27,9 @@ app.post('/batimentos', (request, response) =>{
     const oxBat = {
         O2
     };
-
-    batimentos.push(oxBat);
+    if(oxBat != 0 ){
+        batimentos.push(oxBat);
+    }
 
     fs.writeFile("batimentosOx.json", JSON.stringify(batimentos), (err) =>{
         if(err){
