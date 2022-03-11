@@ -33,7 +33,7 @@ export default function App() {
     labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [
       {
-        data: [10, 20, 30, 40, 50, 60, 70, 80, 90 ,100, 110, 120, 130, 140, 150],
+        data: [10, 20, 30, 40, 50, 60, 70, 80, 90 ,100, 110, 120, 130, 140, 150, 0, 20, 30, 40, 50, 60, 70, 80, 90 ,100, 110, 120, 130, 140, 150],
         color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
         strokeWidth: 2 // optional
       }
