@@ -1,47 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import axios from 'axios';
+import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import React from 'react';
-import { FlatList } from 'react-native-web';
+import api from './api';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 
 export default function App() {
-  constructor(props)
-  {
-    super(props);
-    this.state = {
-      data: []
-    }
-  }
-  
-  
-  loadUsers = () => {
-    fetch("http://localhost:4002/batimentos")
-    .then( res => res.json())
-    .then( res => {
-      this.setstate ({
-        data: res.O2 || []
-      })
-    })
-  }
 
+  const [bat, setBat] = React.useState([]);  
+  var [dados] = React.useState([]);
 
-  componentDidMount()
-  {
-    this.loadUsers
-  }
-
+  React.useEffect(() => {
+    api.get("/batimentos").then((response) => {
+      setBat(response.data)
+      console.log(response.data)
+      dados = response.data
+      console.log(dados)
+    });
+  }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-      <FlatList 
-        data={this.state.data}
-        renderItem={({item}) => (
-          <Text source={{ uri: item.O2}}></Text>
-        )}
-      />
+      <Text style={styles.text}>asd</Text>
     </View>
   );
 
@@ -51,8 +31,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#111',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  text: {
+    color: '#fff'
+  },  
 });
