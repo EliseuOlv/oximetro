@@ -53,6 +53,10 @@ bool connected;
 
 void setup()
 {
+    pinMode(D6, OUTPUT);
+    pinMode(D7, OUTPUT);
+    pinMode(D8, OUTPUT);
+    
     Serial.begin(115200);
     oled.begin();
     oled.clearDisplay();
@@ -189,5 +193,22 @@ void loop()
         
         tsLastReport = millis();
         
+        // if(SpO2 <= 95){
+         // digitalWrite(D6, LOW);
+          //digitalWrite(D8, LOW);
+          //digitalWrite(D7, HIGH);
+        //}
+        
+        //if(SpO2 >= 95){
+        //  digitalWrite(D7, LOW);
+        //  digitalWrite(D6, LOW);
+        //  digitalWrite(D8, HIGH);
+       // }
+        
+        //if(SpO2 == 95){
+          //digitalWrite(D7, LOW);
+          //digitalWrite(D8, LOW);
+          //digitalWrite(D6, HIGH);
+        //}
     }
 }
