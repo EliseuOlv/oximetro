@@ -58,10 +58,10 @@ export default function App() {
 
 
   const data = {
-    labels: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00"],
+    labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",],
     datasets: [
       {
-        data: [1,2,3,4,5,5,5,1],
+        data: [1,2,3,4,5,5,4,3,2,3,2,3],
         color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
         strokeWidth: 5 // optional
       }
