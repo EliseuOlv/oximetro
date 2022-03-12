@@ -2,7 +2,7 @@ POST http://localhost:4002/batimentos
 Content-Type: application/json
 
 {
-    "O2": 234
+    "O2": "234"
 }
 
 ####

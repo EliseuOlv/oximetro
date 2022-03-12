@@ -1,3 +1,7 @@
+//Created By Eliseu Oliveira
+//https://www.instagram.com/eliseuolv/
+
+
 #include <Wire.h>
 #include "MAX30100_PulseOximeter.h"
 #define BLYNK_PRINT Serial
