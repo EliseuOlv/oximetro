@@ -35,10 +35,14 @@ const unsigned char bitmap [] PROGMEM=
 0x00, 0x0f, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
  
+// importante
+//  Setando configurações de rede e conexão com o servidor
 const char* ssid = "Atena_2G"; // Nome da Rede
 const char* password = "paranguarico3l1s3ulwj#4tena";  // Senha Rede.
 const char* websockets_server_host = "192.168.1.68"; // IP do servidor websocket
 const int websockets_server_port = 8080; // Porta de conexão do servidor
+// fim importante
+
 
 // Utilizamos o namespace de websocket para podermos utilizar a classe WebsocketsClient
 using namespace websockets;
@@ -153,15 +157,21 @@ void setup()
  
 void loop()
 {
+    // importante
+    // atualizando dados do oximetro
     pox.update();
-    
+    // importatne
+    // pegando dados do oximetro e armazenando numa variavel
     BPM = pox.getHeartRate();
     SpO2 = pox.getSpO2();
-    
+    // fim importante
     String bpmServer = "";
     String Sp02Server = "";
     bpmServer.concat(BPM);
     Sp02Server.concat(SpO2);
+
+    // importatne
+    // exibindo dados do oximetro no display
     
     if (millis() - tsLastReport > REPORTING_PERIOD_MS)
     {
@@ -193,26 +203,29 @@ void loop()
         oled.println(pox.getSpO2());
         oled.display();
         
+        // importante
+        // enviando dados para o servidor 
         client.send(Sp02Server); //Enviando Dados Para o Servidor  
         
         tsLastReport = millis();
         
-        // if(SpO2 <= 95){
-         // digitalWrite(D6, LOW);
-          //digitalWrite(D8, LOW);
-          //digitalWrite(D7, HIGH);
-        //}
+         if(SpO2 < 95){
+          digitalWrite(D6, LOW);
+          digitalWrite(D8, LOW);
+          digitalWrite(D7, HIGH);
+        }
         
-        //if(SpO2 >= 95){
-        //  digitalWrite(D7, LOW);
-        //  digitalWrite(D6, LOW);
-        //  digitalWrite(D8, HIGH);
-       // }
+        if(SpO2 > 95){
+          digitalWrite(D7, LOW);
+          digitalWrite(D6, LOW);
+          digitalWrite(D8, HIGH);
+       }
         
-        //if(SpO2 == 95){
-          //digitalWrite(D7, LOW);
-          //digitalWrite(D8, LOW);
-          //digitalWrite(D6, HIGH);
-        //}
+        if(SpO2 == 95){
+          digitalWrite(D7, LOW);
+          digitalWrite(D8, LOW);
+          digitalWrite(D6, HIGH);
+        }
     }
+    // fim importante
 }
